@@ -6,9 +6,84 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'anchors.html'
 })
 export class AnchorsPage {
+	options: any[];
+	indexOne: number;
+	indexTwo: number;
+	doneTest: boolean;
 
   constructor(public navCtrl: NavController) {
-
+  	this.doneTest = false;
+  	this.indexOne = 0;
+  	this.indexTwo = 1;
+  	this.populateOptions();
   }
 
+  decisionClicked(decision){
+  	if(!this.doneTest){
+	  	decision.count++;
+	  	if(!(this.indexTwo == 7)){
+	  		this.indexTwo++;
+	  	} else{
+	  		if(this.indexOne == 6){
+	  			this.doneTest = true;
+	  			return;
+	  		}
+	  		this.indexOne++;
+	  		this.indexTwo = this.indexOne + 1;
+	  	}
+  	}
+  }
+
+  populateOptions(){
+  	this.options = [
+  		{
+  			display: 'T',
+	  		title: "Technical/Functional",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'M',
+	  		title: "General managerial",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'A',
+	  		title: "Autonomy/Independence",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'S',
+	  		title: "Security/Stability",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'E',
+	  		title: "Entrepreneurial creativity",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'D',
+	  		title: "Service/Dedication to a cause",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'C',
+	  		title: "Pure challenge",
+	  		description: "",
+	  		count: 0
+	  	},
+	  	{
+	  		display: 'L',
+	  		title: "Lifestyle",
+	  		description: "",
+	  		count: 0
+	  	},
+  	];
+  }
 }
