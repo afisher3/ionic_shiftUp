@@ -9,22 +9,29 @@ export class AnchorsPage {
 	options: any[];
 	indexOne: number;
 	indexTwo: number;
+	doneTest: boolean;
 
   constructor(public navCtrl: NavController) {
+  	this.doneTest = false;
   	this.indexOne = 0;
   	this.indexTwo = 1;
   	this.populateOptions();
   }
 
   decisionClicked(decision){
-  	decision.count++;
-  	if(!(this.indexTwo == 7)){
-  		this.indexTwo++;
-  	} else{
-  		this.indexOne++;
-  		this.indexTwo = this.indexOne + 1;
+  	if(!this.doneTest){
+	  	decision.count++;
+	  	if(!(this.indexTwo == 7)){
+	  		this.indexTwo++;
+	  	} else{
+	  		if(this.indexOne == 6){
+	  			this.doneTest = true;
+	  			return;
+	  		}
+	  		this.indexOne++;
+	  		this.indexTwo = this.indexOne + 1;
+	  	}
   	}
-  	//alert(decision.count);
   }
 
   populateOptions(){
