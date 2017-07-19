@@ -24,47 +24,55 @@ export class AnchorsPage {
   		this.indexOne++;
   		this.indexTwo = this.indexOne + 1;
   	}
-  	alert(decision.count);
+  	//alert(decision.count);
   }
 
   populateOptions(){
   	this.options = [
   		{
+  			display: 'T',
 	  		title: "Technical/Functional",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'M',
 	  		title: "General managerial",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'A',
 	  		title: "Autonomy/Independence",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'S',
 	  		title: "Security/Stability",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'E',
 	  		title: "Entrepreneurial creativity",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'D',
 	  		title: "Service/Dedication to a cause",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'C',
 	  		title: "Pure challenge",
 	  		description: "",
 	  		count: 0
 	  	},
 	  	{
+	  		display: 'L',
 	  		title: "Lifestyle",
 	  		description: "",
 	  		count: 0
