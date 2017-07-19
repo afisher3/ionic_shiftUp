@@ -14,5 +14,9 @@
     Compare with your thinking preference.
   </p>
 
+  <div>
+    <button ion-item (click)="decisionClicked(options[indexOne])">{{ options[indexOne].title }}</button>
+    <button ion-item (click)="decisionClicked(options[indexTwo])">{{ options[indexTwo].title }}</button>
+  </div>
 
 </ion-content>
