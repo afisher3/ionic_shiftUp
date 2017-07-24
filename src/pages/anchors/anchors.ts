@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ResultsPage } from '../results/results';
 
 @Component({
   selector: 'page-anchors',
@@ -26,6 +27,9 @@ export class AnchorsPage {
 	  	} else{
 	  		if(this.indexOne == 6){
 	  			this.doneTest = true;
+	  			this.navCtrl.push(ResultsPage, { 
+	  				results: this.options 
+	  			});
 	  			return;
 	  		}
 	  		this.indexOne++;
