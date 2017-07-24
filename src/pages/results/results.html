@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Results</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <chart [type]="type" [data]="data" [options]="options"></chart>
+  <div id="chartjs-tooltip"></div>
+  <div>
+    <h5>Leading Anchors</h5>
+    <div>Anchor 1: {{anchorOne.title}}</div>
+    <div>Anchor 2: {{anchorTwo.title}}</div>
+  </div>
+  <div>
+    <br />
+    <ion-chip *ngFor="let result of results">
+        <ion-label>{{ result.display }}: {{ result.count}}</ion-label>
+    </ion-chip>
+  </div>
+</ion-content>
