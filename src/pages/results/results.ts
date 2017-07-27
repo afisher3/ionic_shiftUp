@@ -21,11 +21,6 @@ export class ResultsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.results = navParams.get('results');
 
-  	// sort results by highest count
-  	this.results.sort(function(a, b) {return b.count - a.count});
-  	this.anchorOne = this.results[0];
-  	this.anchorTwo = this.results[1];
-
   	this.tLeft = (this.results[0].count + this.results[6].count + (this.results[1].count/2))/10;
   	this.tRight = (this.results[4].count + (this.results[2].count/2))/10;
   	this.bLeft = (this.results[3].count + (this.results[1].count/2))/10;
@@ -58,5 +53,10 @@ export class ResultsPage {
 	  responsive: true,
 	  maintainAspectRatio: false
 	};
+
+	// sort results by highest count
+  	this.results.sort(function(a, b) {return b.count - a.count});
+  	this.anchorOne = this.results[0];
+  	this.anchorTwo = this.results[1];
   }
 }

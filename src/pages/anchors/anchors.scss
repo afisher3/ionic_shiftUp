@@ -1,3 +1,17 @@
 page-anchors {
-
+	.options {
+		//height: 250px;
+	}
+	.dButton {
+		//height: 50%;
+		//height: 200px;
+		background-color: white;
+	}
+	.dButton:active {
+		background-color: rgba(0,255,51,.4);
+	}
+	hr {
+		margin-bottom: 0px;
+		margin-top: 0px;
+	}
 }

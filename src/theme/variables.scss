@@ -24,7 +24,6 @@ $app-direction: ltr;
 
 
 
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -32,15 +31,29 @@ $app-direction: ltr;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  tPrimary: #8827ab,
+  tSecondary: #f36c21,
+  navbar: (
+  	base: #565656,
+  	contrast: #f36c21
+  ),
+  buttons: (
+  	base: #ff9600,
+  	contrast: white
+  )
 );
 
+h3 {
+	color:map-get($colors, tPrimary)
+}
+
+$toolbar-background: #565656;
 
 // App iOS Variables
 // --------------------------------------------------
