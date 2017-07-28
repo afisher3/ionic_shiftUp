@@ -38,10 +38,10 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   tPrimary: #8827ab,
-  tSecondary: #f36c21,
+  tSecondary: #ff9600,
   navbar: (
   	base: #565656,
-  	contrast: #f36c21
+  	contrast: #ff9600
   ),
   buttons: (
   	base: #ff9600,
@@ -50,7 +50,7 @@ $colors: (
 );
 
 h3 {
-	color:map-get($colors, tPrimary)
+	color:map-get($colors, tSecondary)
 }
 
 $toolbar-background: #565656;
