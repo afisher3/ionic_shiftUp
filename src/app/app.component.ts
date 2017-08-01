@@ -6,14 +6,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AnchorsPage } from '../pages/anchors/anchors';
+import { LoginComponent } from '../pages/login/login.component';
+import { SignupComponent } from '../pages/signup/signup.component';
+import { MembersComponent } from '../pages/members/members.component';
+import { EmailComponent } from '../pages/email/email.component';
+import { AuthGuard } from './auth.service';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginComponent;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,6 +27,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
+      { title: 'login', component: LoginComponent },
+      { title: 'signup', component: SignupComponent },
+      { title: 'login-email', component: EmailComponent },
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Career Anchors', component: AnchorsPage }
