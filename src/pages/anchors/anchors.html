@@ -38,6 +38,9 @@
         </ion-list>
       </ion-card>
     </div>
+    <div class="progress-bar">
+      <span [style.width.%]="(testProgress/28)*100"><!--{{testProgress}}/28--></span>
+    </div>
     <!-- <ion-chip *ngFor="let option of options">
       <ion-label>{{ option.display }}: {{ option.count}}</ion-label>
     </ion-chip> -->

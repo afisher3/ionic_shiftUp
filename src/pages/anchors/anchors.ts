@@ -11,17 +11,20 @@ export class AnchorsPage {
 	indexOne: number;
 	indexTwo: number;
 	doneTest: boolean;
+	testProgress: number;
 
   constructor(public navCtrl: NavController) {
   	this.doneTest = false;
   	this.indexOne = 0;
   	this.indexTwo = 1;
   	this.populateOptions();
+  	this.testProgress = 0;
   }
 
   decisionClicked(decision){
   	if(!this.doneTest){
 	  	decision.count++;
+	  	this.testProgress++;
 	  	if(!(this.indexTwo == 7)){
 	  		this.indexTwo++;
 	  	} else{

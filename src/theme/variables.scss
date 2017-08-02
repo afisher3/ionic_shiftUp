@@ -38,22 +38,25 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   tPrimary: #8827ab,
-  tSecondary: #ff9600,
+  tSecondary: #f36c21,
   navbar: (
-  	base: #565656,
-  	contrast: #ff9600
+    base: #e0e0e0,
+    contrast: #f36c21
   ),
   buttons: (
-  	base: #ff9600,
-  	contrast: white
-  )
+    base: #ff9600,
+    contrast: white
+  ),
 );
 
 h3 {
-	color:map-get($colors, tSecondary)
+  color:map-get($colors, tPrimary)
 }
 
-$toolbar-background: #565656;
+$toolbar-background: #e0e0e0;
+$text-color: rgba(72,65,88,.7);
+$font-family-base: "roboto";
+$font-size-base: 16px;
 
 // App iOS Variables
 // --------------------------------------------------

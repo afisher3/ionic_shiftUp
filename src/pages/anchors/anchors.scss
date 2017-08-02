@@ -5,7 +5,7 @@ page-anchors {
 	.dButton {
 		//height: 50%;
 		//height: 200px;
-		//background-color: white;
+		background-color: white;
 	}
 	.dButton:active {
 		//background-color: rgba(0,255,51,.4);
@@ -14,5 +14,30 @@ page-anchors {
 	hr {
 		margin-bottom: 0px;
 		margin-top: 0px;
+	}
+	.progress-bar {
+	    background-color: color($colors, navbar);
+	    height: 20px;
+	    width: 80%;
+	    padding-top: 2px;
+	    padding-bottom: 1px;
+	    padding-left: 2px;
+	    padding-right: 2px;
+	    margin-left: 10%;
+	    margin-right: 10%;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+	    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+	    border-radius: 5px;
+
+	    span {
+	        text-align: center;
+	        display: inline-block;
+	        height: 100%;
+	        border-radius: 3px;
+	        box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+	        background-color: rgba(color($colors,tSecondary),.8);
+	        transition: width .4s ease-in-out;    
+	    }
 	}
 }
