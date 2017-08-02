@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../results/results';
+import  * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-anchors',
@@ -11,12 +13,20 @@ export class AnchorsPage {
 	indexOne: number;
 	indexTwo: number;
 	doneTest: boolean;
+	userId: string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public af: AngularFireAuth) {
   	this.doneTest = false;
   	this.indexOne = 0;
   	this.indexTwo = 1;
   	this.populateOptions();
+  	this.af.authState.subscribe(auth => { 
+      if(auth) {
+      	this.userId = auth.uid;
+        //this.navCtrl.push(AnchorsPage);
+      }
+  	});
+  	//this.userId = af.//navParams.get('userId');
   }
 
   decisionClicked(decision){
@@ -27,6 +37,7 @@ export class AnchorsPage {
 	  	} else{
 	  		if(this.indexOne == 6){
 	  			this.doneTest = true;
+	  			this.storeResults();
 	  			this.navCtrl.push(ResultsPage, { 
 	  				results: this.options 
 	  			});
@@ -36,6 +47,12 @@ export class AnchorsPage {
 	  		this.indexTwo = this.indexOne + 1;
 	  	}
   	}
+  }
+
+  storeResults(){
+  	firebase.database().ref('users/' + this.userId).set({
+  		results: this.options
+  	});
   }
 
   populateOptions(){
