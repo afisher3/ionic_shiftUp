@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import  * as firebase from 'firebase/app';
+import  * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { moveIn, fallIn } from '../../app/router.animations';
 import { NavController } from 'ionic-angular';
 import { AnchorsPage } from '../anchors/anchors';
+import { ResultsPage } from '../results/results';
 import { SignupComponent } from '../signup/signup.component';
 
 @Component({
@@ -16,9 +17,9 @@ import { SignupComponent } from '../signup/signup.component';
 export class EmailComponent implements OnInit {
 
   state: string = '';
-    error: any;
+  error: any;
 
-    constructor(public af: AngularFireAuth,private router: Router, public navCtrl: NavController) {
+  constructor(public af: AngularFireAuth,private router: Router, public navCtrl: NavController) {
     this.af.authState.subscribe(auth => { 
       if(auth) {
         //this.router.navigateByUrl('/anchors');
@@ -29,14 +30,23 @@ export class EmailComponent implements OnInit {
 
   onSubmit(formData) {
     if(formData.valid) {
-      console.log(formData.value);
       this.af.auth.signInWithEmailAndPassword(
         formData.value.email,
         formData.value.password
       ).then(
         (success) => {
-        console.log(success);
-        this.navCtrl.push(AnchorsPage);
+          console.log(success);
+          firebase.database().ref('users/' + this.af.auth.currentUser.uid).once('value', 
+            (snapshot) => {
+              if(snapshot.val() == null){
+                this.navCtrl.push(AnchorsPage);
+              }
+              else {
+                this.navCtrl.push(ResultsPage, {
+                  results: snapshot.val().results
+                });
+              }
+            });
       }).catch(
         (err) => {
         console.log(err);
